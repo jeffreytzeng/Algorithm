@@ -13,8 +13,8 @@ class QuickSortArray
 
 		void CheckCorrect();
 		void Insert(int number);
-		int OrderedWithIn3(int start, int end);
-		int Partition(int start, int end, int pivot);
+		int OrderedWithIn3(int &start, int &end);
+		int Partition(int &start, int &end, int &pivot);
 		void QuickSort();
 		void Show();
 		void Sort(int start, int end);

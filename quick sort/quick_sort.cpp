@@ -22,7 +22,7 @@ void QuickSortArray::Insert(int number) {
 	array_[total_++] = number;
 }
 
-int QuickSortArray::OrderedWithIn3(int start, int end) {
+int QuickSortArray::OrderedWithIn3(int &start, int &end) {
 	int length = end - start + 1;
 	int middle = end;
 
@@ -51,7 +51,7 @@ int QuickSortArray::OrderedWithIn3(int start, int end) {
 	return middle;
 }
 
-int QuickSortArray::Partition(int start, int end, int pivot) {
+int QuickSortArray::Partition(int &start, int &end, int &pivot) {
 	int left = start - 1;
 	int right = end;
 
