@@ -24,7 +24,7 @@ void QuickSortArray::Insert(int number) {
 
 int QuickSortArray::Partition(int start, int end, int pivot) {
 	int left = start - 1;
-	int right = end + 1;
+	int right = end;
 
 	while (true) {
 		while (left < end && array_[++left] < array_[pivot]) {
