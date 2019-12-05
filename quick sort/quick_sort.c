@@ -1,29 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-void CheckCorrect(int *arr, int *size);
-int OrderedWithIn3(int *arr, int *start, int *end);
-int Partition(int *arr, int *start, int *end, int *pivot);
-void Show(int *arr, int *size);
-void Sort(int *arr, int start, int end);
-void Swap(int *arr, int *left, int *right);
-
-int main()
-{
-	srand(time(NULL));
-	int n = 16;
-	int numbers[n];
-
-	for (int i = 0; i < n; i++) {
-		numbers[i] = rand() % 199;
-	}
-
-	Sort(numbers, 0, n-1);
-	Show(numbers, &n);
-	CheckCorrect(numbers, &n);	// Check is array in ascending order
-	return 0;
-}
+#include "quick_sort.h"
 
 void CheckCorrect(int *arr, int *size) {
 	enum check {False, True};
