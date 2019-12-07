@@ -18,6 +18,26 @@ class QuickSortArray():
 	def Insert(self, number):
 		self.array.append(number)
 
+	def OrderedWithIn3(self, start, end):
+		length = end - start + 1
+		middle = end
+
+		if length == 2:
+			if self.array[start] > self.array[end]:
+				self.array[start], self.array[end] = self.array[end], self.array[start]
+		elif length == 3:
+			middle = int((start + end) / 2)
+
+			if self.array[start] > self.array[end]:
+				self.array[start], self.array[end] = self.array[end], self.array[start]
+			if self.array[middle] > self.array[end]:
+				self.array[middle], self.array[end] = self.array[end], self.array[middle]
+			if self.array[start] > self.array[middle]:
+				self.array[start], self.array[middle] = self.array[middle], self.array[start]
+
+		self.array[middle], self.array[end] = self.array[end], self.array[middle]
+		return middle
+
 	def Partition(self, start, end, pivot):
 		left = start
 		right = end
@@ -45,15 +65,16 @@ class QuickSortArray():
 		for i in range(numbers):
 			self.Insert(random.randrange(199))
 
-	def Sort(self, start, end):
-		if end - start >= 0:
-			partition = self.Partition(start, end, end)
-			self.Sort(start, partition-1)
-			self.Sort(partition+1, end)
-
 	def Show(self):
 		for index in range(len(self.array)):
 			print(str(self.array[index]) if index == len(self.array)-1 else str(self.array[index]) + " ", end='')
 
 		print('')
 
+	def Sort(self, start, end):
+		median = self.OrderedWithIn3(start, end)
+
+		if end - start >= 0:
+			partition = self.Partition(start, end, median)
+			self.Sort(start, partition-1)
+			self.Sort(partition+1, end)
