@@ -10,7 +10,10 @@ class QuickSortArray():
 			if self.array[index] > self.array[index+1]:
 				correct = False
 
-		print(correct)
+		return correct
+
+	def CleanArray(self):
+		self.array.clear()
 
 	def Insert(self, number):
 		self.array.append(number)
@@ -38,6 +41,10 @@ class QuickSortArray():
 		self.array[left], self.array[pivot] = self.array[pivot], self.array[left]
 		return left
 
+	def RandomNumbers(self, numbers):
+		for i in range(numbers):
+			self.Insert(random.randrange(199))
+
 	def Sort(self, start, end):
 		if end - start >= 0:
 			partition = self.Partition(start, end, end)
@@ -50,12 +57,3 @@ class QuickSortArray():
 
 		print('')
 
-
-n = 16
-numbers = QuickSortArray()
-for i in range(n):
-	numbers.Insert(random.randrange(199))
-
-numbers.Sort(0, n-1)
-numbers.Show()
-numbers.CheckCorrect()
