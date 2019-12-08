@@ -1,4 +1,4 @@
-#include "quick_sort.c"
+#include "quick_sort.h"
 
 int main()
 {

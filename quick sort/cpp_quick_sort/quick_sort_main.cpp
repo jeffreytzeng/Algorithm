@@ -1,4 +1,4 @@
-#include "quick_sort.cpp"
+#include "quick_sort.hpp"
 
 int main()
 {
